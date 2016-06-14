@@ -16,7 +16,7 @@ object Oauth {
   private val url = "https://stream.twitter.com/1.1/statuses/filter.json"
 
   //Create Oauth 1a header
-  def getOauthHeader(consumerKey: String, consumerSecret: String, accessToken: String, accessTokenSecret: String)
+  def getOauthHeader(consumerKey: String, consumerSecret: String, accessToken: String, accessTokenSecret: String, url: String, body: String)
                     (implicit system: ActorSystem, mat: ActorMaterializer): Future[String] = {
 
   val consumer = new DefaultConsumerService(system.dispatcher)
@@ -26,7 +26,7 @@ object Oauth {
         method = "POST",
         url = url,
         authorizationHeader = None,
-        body = None
+        body = Some(body)
       ),
       consumerKey,
       consumerSecret,

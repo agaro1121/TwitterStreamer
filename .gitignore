@@ -66,5 +66,14 @@ project/plugins/project/
 # Simple Build Tool
 # http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
 
-/src/main/resources/reference.conf
+/application.conf
 /.idea/
+/.ensime_cache/
+/.ensime
+/src/main/resources/application.conf
+project/project/
+src/main/java/
+src/main/scala-2.11/
+src/main/scala/client/#HttpClient.scala#
+src/main/scala/server/
+src/test/
