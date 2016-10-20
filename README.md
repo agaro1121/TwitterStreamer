@@ -10,8 +10,11 @@ functions:
 - common function to do work
 
 Need:
-- Http Client -> class
+- Http Client -> Class
 - Functions
 - Server with/routes -> class
 
 "https://stream.twitter.com/1.1/statuses/filter.json"
+
+changes
+

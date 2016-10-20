@@ -7,5 +7,5 @@ import client.HttpClient
   */
 object Main extends App {
   val client = new HttpClient()
-  client.streamByHashTag("newyork")
+  client.streamByHashTag("HBCDigital,GiltTech")
 }

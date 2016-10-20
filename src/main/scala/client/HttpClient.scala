@@ -5,16 +5,16 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpHeader.ParsingResult
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
-import akka.stream.scaladsl.Source
+import akka.stream.scaladsl.{Sink, Source}
 import akka.util.ByteString
 import model.Tweet
+import org.json4s._
+import org.json4s.native.JsonMethods._
 import util.Oauth
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
-import org.json4s._
-import org.json4s.native.JsonMethods._
 
 /**
   * Created by Hierro on 5/31/16.
@@ -72,10 +72,10 @@ class HttpClient {
                   .runForeach {
                     case Success(tweet) =>
                       println("-----")
-                      println(tweet.text)
+                      println(s"${tweet.user.name} -> ${tweet.text}")
                     case Failure(e) =>
-                      println("-----")
-                      println(response.entity.dataBytes.runForeach(db => println(db.utf8String)))
+//                      println("-----")
+//                      println(response.entity.dataBytes.runForeach(db => println(db.utf8String)))
                   }
               }
             }
@@ -92,7 +92,8 @@ class HttpClient {
           .via(connectionFlow)
           .runForeach(println)
 
-      case Failure(t) => println("Failure:" + t)
+      case Failure(t) =>
+//        println("Failure:" + t)
     }
   }
 }
