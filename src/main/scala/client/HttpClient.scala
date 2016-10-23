@@ -74,8 +74,8 @@ class HttpClient {
                       println("-----")
                       println(s"${tweet.user.name} -> ${tweet.text}")
                     case Failure(e) =>
-//                      println("-----")
-//                      println(response.entity.dataBytes.runForeach(db => println(db.utf8String)))
+                      println("-----")
+                      println(response.entity.dataBytes.runForeach(db => println(db.utf8String)))
                   }
               }
             }
@@ -93,7 +93,7 @@ class HttpClient {
           .runForeach(println)
 
       case Failure(t) =>
-//        println("Failure:" + t)
+        println("Failure:" + t)
     }
   }
 }
