@@ -93,7 +93,7 @@ class HttpClient {
           .runForeach(println)
 
       case Failure(t) =>
-        println("Failure:" + t)
+        println("Failure: " + t)
     }
   }
 }
